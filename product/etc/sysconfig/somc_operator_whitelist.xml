@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+   <allow-in-power-save package="com.altice.android.myapps"/>
+   <allow-in-power-save package="com.orange.aura.oobe"/>
+   <allow-in-power-save package="com.orange.update"/>
+   <allow-in-power-save package="com.sfr.android.sfrjeux"/>
+   <allow-in-power-save-except-idle package="com.orange.update"/>
+</config>
