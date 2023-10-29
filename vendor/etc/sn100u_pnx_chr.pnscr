@@ -1,0 +1,12 @@
+reset 0
+reset 1
+interval 50
+
+# Wake up CLF
+// NCI CORE RESET CMD
+trigger 60000A
+trigger 40000100
+send 20000100
+
+// NCI CORE INIT CMD
+send 2001020000

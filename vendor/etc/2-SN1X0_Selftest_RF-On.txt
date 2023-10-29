@@ -1,0 +1,32 @@
+reset 0
+reset 1
+interval 50
+
+# Wake up CLF
+// NCI CORE RESET CMD
+send 20000100
+
+// NCI CORE INIT CMD
+send 2001020000
+
+# RF ON
+// NCI SYSTEM ENABLE PROPRIETARY CMD
+send 2F0200
+
+// NCI Disable standby mode
+send 2F000100
+
+// DISABLE DPC
+send 2F3F03700201
+
+// START CONTINUOUS RF ON
+send 2F3F03320200
+
+sleep 2
+
+# RF OFF
+// STOP CONTINUOUS RF ON
+send 2F3F03320000
+
+// NCI Enable standby mode
+send 2F000101

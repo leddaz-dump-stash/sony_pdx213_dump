@@ -1,0 +1,14 @@
+reset 0
+reset 1
+interval 50
+
+# Wake up CLF
+// NCI CORE RESET CMD
+send 20000100
+
+// NCI CORE INIT CMD
+send 2001020000
+
+# Enable standby mode
+trigger 4F000100
+send 2F000101

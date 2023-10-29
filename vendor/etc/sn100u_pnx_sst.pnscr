@@ -1,0 +1,21 @@
+reset 0
+reset 1
+interval 50
+
+# Wake up CLF
+// NCI CORE RESET CMD
+send 20000100
+
+// NCI CORE INIT CMD
+send 2001020000
+
+# SWP test command
+// NFC TEST_SWP_CMD for UUCC1(SWIO1)
+trigger 6F3E02
+trigger 4F3E01
+send 2F3E0100
+
+// NFC TEST_SWP_CMD for UUCC2(SWIO2)
+trigger 6F3E02
+trigger 4F3E01
+send 2F3E0102

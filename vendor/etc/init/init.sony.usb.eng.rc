@@ -1,0 +1,26 @@
+# Copyright (C) 2019 Sony Mobile Communications Inc.
+#
+# init.sony.usb.eng.rc
+#
+# This script is used for setting USB eng configurations.
+# The configuration set needs to match with the ones from
+# /vendor/etc/init/init.sony.usb.rc
+#
+
+on property:persist.usb.eng=1 && property:sys.usb.config=adb
+    setprop sys.usb.config eng_mode,adb
+
+on property:persist.usb.eng=0 && property:sys.usb.config=eng_mode,adb
+    # When changing functions the sequence should be old->none->new
+    # so that configfs is wiped
+    setprop sys.usb.config none
+    setprop sys.usb.config adb
+
+on property:persist.usb.eng=1 && property:sys.usb.config=rndis,adb
+    setprop sys.usb.config eng_mode,rndis,adb
+
+on property:persist.usb.eng=0 && property:sys.usb.config=eng_mode,rndis,adb
+    # When changing functions the sequence should be old->none->new
+    # so that configfs is wiped
+    setprop sys.usb.config none
+    setprop sys.usb.config rndis,adb
