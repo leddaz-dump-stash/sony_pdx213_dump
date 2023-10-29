@@ -1,0 +1,10 @@
+on post-fs-data
+    wait /dev/block/bootdevice/by-name/LTALabel
+    restorecon_recursive /dev/block/bootdevice/by-name/LTALabel
+    start preloads_elabel
+
+service preloads_elabel /system/bin/preloads_elabel_update.sh
+    user root
+    group root
+    disabled
+    oneshot
